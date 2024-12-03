@@ -1,3 +1,7 @@
 requests
 cutie
 icecream
+flake8
+flake8-variables-names
+flake8-import-order
+flake8-quotes

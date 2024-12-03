@@ -2,44 +2,44 @@ import re
 
 with open("input.txt") as f:
   # one line of input
-  d = f.read().strip()
+  data = f.read().strip()
 
 
 def part1(data):
   pattern = r"mul\(\d{1,3},\d{1,3}\)"
-  match = re.findall(pattern, data)
+  matches = re.findall(pattern, data)
 
-  s = 0
+  total = 0
 
-  for m in match:
-    a, b = map(int, re.findall(r"\d+", m))
-    s += a * b
+  for match in matches:
+    a, b = map(int, re.findall(r"\d+", match))  # noqa: VNE001
+    total += a * b
 
-  return s
+  return total
 
 
 def part2(data):
   pattern = r"mul\(\d{1,3},\d{1,3}\)"
-  match = re.findall(pattern, data)
+  matches = re.findall(pattern, data)
 
-  s = 0
-  en = True
+  total = 0
+  enable = True
 
-  for m in match:
-    idx = data.index(m)
+  for match in matches:
+    idx = data.index(match)
     before = data[:idx]
     doIdx, dontIdx = before.rfind("do()"), before.rfind("don't()")
 
     if doIdx + dontIdx != -2:
-      en = doIdx > dontIdx
+      enable = doIdx > dontIdx
 
-    if en:
-      a, b = map(int, re.findall(r"\d+", m))
-      s += a * b
+    if enable:
+      a, b = map(int, re.findall(r"\d+", match))  # noqa: VNE001
+      total += a * b
 
-  return s
+  return total
 
 
 if __name__ == "__main__":
-  print(part1(d))
-  print(part2(d))
+  print(part1(data))
+  print(part2(data))

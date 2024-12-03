@@ -1,8 +1,10 @@
-import cutie
 import pathlib
-import requests
 import shutil
 import sys
+
+import cutie
+
+import requests
 
 YEAR = 2024
 

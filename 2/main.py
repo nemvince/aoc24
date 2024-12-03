@@ -1,5 +1,5 @@
 with open("input.txt") as f:
-  d = f.read().splitlines()
+  data = f.read().splitlines()
 
 
 def isSafe(level):
@@ -14,35 +14,35 @@ def isSafe(level):
 
 
 def part1(data):
-  d = [x.split(" ") for x in data]
-  s = 0
+  data = [x.split(" ") for x in data]
+  total = 0
 
-  for level in d:
+  for level in data:
     level = [int(x) for x in level]
-    s += isSafe(level)
+    total += isSafe(level)
 
-  return s
+  return total
 
 
 def part2(data):
-  d = [x.split(" ") for x in data]
-  s = 0
+  data = [x.split(" ") for x in data]
+  total = 0
 
-  for level in d:
+  for level in data:
     level = [int(x) for x in level]
     if isSafe(level):
-      s += 1
+      total += 1
       continue
 
     for i in range(len(level)):
       test = level[:i] + level[i + 1:]
       if isSafe(test):
-        s += 1
+        total += 1
         break
 
-  return s
+  return total
 
 
 if __name__ == "__main__":
-  print(part1(d))
-  print(part2(d))
+  print(part1(data))
+  print(part2(data))

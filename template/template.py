@@ -1,5 +1,5 @@
 with open("input.txt") as f:
-  d = f.read().splitlines()
+  data = f.read().splitlines()
 
 
 def part1(data):
@@ -11,5 +11,5 @@ def part2(data):
 
 
 if __name__ == "__main__":
-  print(part1(d))
-  print(part2(d))
+  print(part1(data))
+  print(part2(data))
