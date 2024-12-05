@@ -9,7 +9,7 @@ def part1(data):
   total = 0
 
   for i in range(len(d1)):
-    total += d1[i] * d2[-i - 1]
+    total += abs(d1[i] - d2[i])
 
   return total
 
