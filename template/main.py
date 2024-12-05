@@ -1,3 +1,4 @@
+import os
 import pathlib
 import shutil
 import sys
@@ -40,7 +41,7 @@ def getDay():
 
 if __name__ == "__main__":
   day = getDay()
-  inputData = fetchInput(YEAR, day)
+  # inputData = fetchInput(YEAR, day)
 
   templateDir = pathlib.Path(__file__).parent.absolute()
   srcPath = templateDir.parent
@@ -55,7 +56,13 @@ if __name__ == "__main__":
   shutil.copy(templateDir / "template.py", dayPath / "main.py")
 
   with open(dayPath / "input.txt", "w") as f:
-    f.write(inputData)
+    f.write("")
 
   with open(dayPath / "example.txt", "w") as f:
     f.write("")
+
+  print(f"Day {day} created.")
+
+  os.system(f"code {dayPath}/main.py")
+  os.system(f"code {dayPath}/example.txt")
+  os.system(f"code {dayPath}/input.txt")
