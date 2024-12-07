@@ -1,9 +1,6 @@
 with open("input.txt") as f:
   data = f.read().split("\n\n")
 
-orderingRules = [x.split("|") for x in data[0].splitlines()]
-updateNumbers = [x.split(",") for x in data[1].splitlines()]
-
 
 def isValid(update, rule):
   if rule[0] in update and rule[1] in update:
@@ -14,6 +11,9 @@ def isValid(update, rule):
 
 
 def part1(data):
+  orderingRules = [x.split("|") for x in data[0].splitlines()]
+  updateNumbers = [x.split(",") for x in data[1].splitlines()]
+
   validUpdates = []
   for update in updateNumbers:
     valid = True
@@ -30,6 +30,9 @@ def part1(data):
 
 
 def part2(data):
+  orderingRules = [x.split("|") for x in data[0].splitlines()]
+  updateNumbers = [x.split(",") for x in data[1].splitlines()]
+
   invalidUpdates = []
   for update in updateNumbers:
     valid = True
